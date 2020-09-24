@@ -1,7 +1,7 @@
 package com.launchstore.domain.product;
 
-/*import org.springframework.data.jpa.repository.JpaRepository;*/
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository /*extends JpaRepository<Product, Integer>*/ {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 }
