@@ -5,6 +5,8 @@ import com.launchstore.domain.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+
 @Service
 public class ProductService {
     @Autowired
@@ -28,5 +30,9 @@ public class ProductService {
         if(product.getStatus() == null){
             product.setStatus(1);
         }
+    }
+
+    public Product getProductById(Integer id){
+        return (Product) productRepository.findAllById(Collections.singleton(id));
     }
 }

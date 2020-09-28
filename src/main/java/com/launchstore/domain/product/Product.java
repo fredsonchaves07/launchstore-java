@@ -3,9 +3,14 @@ package com.launchstore.domain.product;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -18,7 +23,7 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "Necessário preencher o nome")
+    @NotNull(message = "Necessário preencher o nome")
     @Column(nullable = false)
     private String name;
 
@@ -29,14 +34,20 @@ public class Product implements Serializable {
     @Column(nullable = false)
     private Double oldPrice;
 
-    @NotBlank(message = "O preço não pode ficar vazio")
+    @NotNull(message = "O preço não pode ficar vazio")
     @Column(nullable = false)
     private Double price;
 
-    @NotBlank(message = "Necessário informar a quantidade")
+    @NotNull(message = "Necessário informar a quantidade")
     @Column(nullable = false)
     private Integer quantity;
 
     @Column(nullable = false)
     private Integer status;
+
+    @CreatedDate
+    private Date createdAt;
+
+    @LastModifiedDate
+    private Date modifiedAt;
 }
